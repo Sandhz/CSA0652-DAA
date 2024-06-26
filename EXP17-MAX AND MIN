@@ -1,0 +1,30 @@
+#include <stdio.h>
+struct Pair
+{
+    int max;
+    int min;
+};
+struct Pair maxMinNaive(int arr[], int n)
+{
+    struct Pair result;
+    result.max = arr[0];
+    result.min = arr[0];
+    for (int i = 1; i < n; i++)
+	{
+        if (arr[i] > result.max)
+            result.max = arr[i];
+        if (arr[i] < result.min)
+            result.min = arr[i];
+    }
+    return result;
+}
+
+int main() {
+    int arr[] = {6, 4, 26, 14, 33, 64, 46};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    struct Pair result = maxMinNaive(arr, n);
+    printf("Maximum element is: %d\n", result.max);
+    printf("Minimum element is: %d\n", result.min);
+
+    return 0;
+}
